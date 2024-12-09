@@ -1,0 +1,166 @@
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('https://media1.popsugar-assets.com/files/thumbor/P-nUrPVnQQ1T9AiAbA__Ex_mWyg=/fit-in/792x1188/filters:format_auto():upscale()/2020/12/09/903/n/1922507/e61783748d617ad8_roberto-nickson-5PQn41LFsQk-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #message-box {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        .santa,
+        .santa2,
+        .tree,
+        .deer {
+            position: fixed;
+        }
+
+        .santa {
+            left: -300px;
+            top: 100px;
+            animation: santa 6s linear forwards;
+        }
+
+        .tree {
+            bottom: 350px;
+            opacity: 0;
+            animation: tree 2s linear 6s forwards;
+        }
+
+        .santa2 {
+            bottom: 390px;
+            left: 450px;
+            opacity: 0;
+            animation: santa2 2s linear 6s forwards;
+            transform: scaleX(-1);
+        }
+
+        .deer {
+            width: 100%;
+            height: 100%;
+            top: -410px;
+            opacity: 0;
+            animation: deer 1s 6s forwards;
+        }
+
+        @keyframes deer {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes santa2 {
+            0% {
+                opacity: 0;
+                transform: scale(1.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes tree {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes santa {
+            0% {
+                left: -300px;
+                top: 200px;
+            }
+            40% {
+                left: 170px;
+                top: 40px;
+            }
+            60% {
+                left: 460px;
+                top: 100px;
+            }
+            80% {
+                left: 720px;
+                top: 50px;
+            }
+            100% {
+                left: 960px;
+                top: 40px;
+            }
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-2.1.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/JQuery-Snowfall/1.7.4/snowfall.jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery(document).snowfall({ flakeCount: 200, maxSpeed: 8, maxSize: 8, minSize: 4 });
+    
+            var typed = new Typed('#message-box', {
+                strings: [
+                    "Kính gửi Bạn thân mến.<br><br>",
+                    "Mùa Giáng Sinh lại về, một mùa đầy ắp yêu thương và hạnh phúc. Tôi chân thành gửi đến bạn và gia đình lời chúc mừng Giáng Sinh ngập tràn niềm vui và sự ấm áp. Hy vọng rằng mọi điều tốt đẹp nhất sẽ đến với bạn trong năm mới này.<br><br>",
+                    "Chúc bạn một mùa lễ hội an lành và hạnh phúc!<br>",
+                    "Trân trọng, [Tên Bạn]"
+                ],
+                typeSpeed: 40,  // Tốc độ đánh máy
+                backSpeed: 30,  // Tốc độ xóa chữ
+                backDelay: 1000, // Thời gian chờ trước khi bắt đầu xóa chuỗi
+                startDelay: 5000, // Độ trễ khi bắt đầu hiệu ứng
+                loop: true,      // Lặp lại hiệu ứng
+                showCursor: true, // Hiển thị con trỏ
+                cursorChar: '|',  // Ký tự dùng làm con trỏ
+                onStringTyped: function(arrayPos, self) {
+                    // Kiểm tra xem có phải đang xử lý chuỗi thứ hai không
+                    if (arrayPos === 1) { // Index 1 là chuỗi thứ hai trong mảng strings
+                        self.backSpeed = 8; // Tăng tốc độ xóa cho chuỗi này
+                    }
+                },
+                onReset: function(self) {
+                    self.backSpeed = 30; // Đặt lại tốc độ xóa về bình thường khi chuỗi bắt đầu lặp lại
+                }
+            });
+        });
+    </script>
+    
+    
+</head>
+<body>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <audio autoplay loop>
+        <source src="background.mp3" type="audio/mpeg">
+    </audio>
+    <div id="message-box"></div>  <!-- Chú ý đến ID đúng -->
+
+    <!-- Các thành phần khác của trang -->
+    <!-- Santa Claus -->
+    <dotlottie-player class="santa" src="https://lottie.host/3917bbbc-0b3b-44e2-aeec-c57c52f869c0/hjFE9Eu7O7.json"
+        background="transparent" speed="1.5" style="width: 450px; height: 450px;" loop autoplay></dotlottie-player>
+    <!-- Christmas Tree -->
+    <dotlottie-player class="tree" src="https://lottie.host/8ac84019-f174-4d0c-8409-b3fad6f7437c/hPjp5FxjrN.json"
+        background="transparent" speed="1" style="width: 600px; height: 600px;" loop autoplay></dotlottie-player>
+    <!-- Santa Claus 2 -->
+    <dotlottie-player class="santa2" src="https://lottie.host/1e9e1a75-637e-40a2-a712-007b605f4133/LF5Iyye6IP.json"
+        background="transparent" speed="1" style="width: 450px; height: 450px;" loop autoplay></dotlottie-player>
+    <dotlottie-player class="deer" src="https://lottie.host/743f3729-bc9e-46dc-bb35-e4312a6ad948/tZJCZRhfEg.json"
+        background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
+</body>
+</html>
