@@ -139,15 +139,16 @@
                 }
             });
         });
+        const audioPlayer = document.getElementById("audioPlayer");
+audioPlayer.play(); // Tự động phát nhạc khi trang tải
+
     </script>
     
     
 </head>
 <body>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <audio autoplay loop>
-        <source src="./song/background.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="audioPlayer" src="./song/background.mp3" autoplay></audio> 
     <div id="message-box"></div>  <!-- Chú ý đến ID đúng -->
 
     <!-- Các thành phần khác của trang -->
